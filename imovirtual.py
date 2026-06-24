@@ -26,18 +26,26 @@ class ImovirtualParserJob():
             if len(area):
                 area_text = await area[0].locator('div').nth(1).inner_text()
                 post_data['area'] = area_text.replace('\xa0', '')
+            else:
+                post_data['area'] = ""
 
             typology = await grids.filter(has_text="Typology").all()
             if len(typology):
                 post_data['typology'] = await typology[0].locator('div').nth(1).inner_text()
+            else:
+                post_data['typology'] = ""
 
             bath = await grids.filter(has_text="Number of bathrooms").all()
             if len(bath):
                 post_data['bath'] = await bath[0].locator('div').nth(1).inner_text()
+            else:
+                post_data['bath'] = ""
 
             floor = await grids.filter(has_text="Floor").all()
             if len(floor):
                 post_data['floor'] = await floor[0].locator('div').nth(1).inner_text()
+            else:
+                post_data['floor'] = ""
 
             post_data['description'] = await page.locator('[data-sentry-element="DescriptionWrapper"]').nth(0).inner_text()
             
@@ -199,4 +207,4 @@ class ImovirtualParserJob():
                         data_set.add(item['url'])
                         unique_result.append(item)
                 # Return results
-                await callback(result)
+                await callback(unique_result)
