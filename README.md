@@ -24,4 +24,8 @@ behavior to collect property listings and export results to CSV or Google Sheets
 - Playwright
 - Google Sheets API
 
+Examples of a run: 
+python main.py --type rent --home_type Apartments --location Lisbon
+python main.py --type buy --home_type Houses --location Porto --spreadsheet_id 1NRjxFnyMYaAar_wSwe9D9v5uLf_df-7jtkEo0aNyP30
+
 Add your own service_account.json for Google Sheets export.
