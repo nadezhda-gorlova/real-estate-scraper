@@ -23,3 +23,5 @@ behavior to collect property listings and export results to CSV or Google Sheets
 - Python
 - Playwright
 - Google Sheets API
+
+Add your own service_account.json for Google Sheets export.
